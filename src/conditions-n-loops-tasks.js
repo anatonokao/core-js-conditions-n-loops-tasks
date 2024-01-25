@@ -526,26 +526,34 @@ function shuffleChar(str, iterations) {
 function getNearestBigger(number) {
   const digits = Array.from(String(number), Number);
   let i = digits.length - 1;
+  let j = digits.length - 1;
+
   while (i > 0 && digits[i - 1] >= digits[i]) {
     i -= 1;
   }
+
   if (i <= 0) {
     return number;
   }
-  let j = digits.length - 1;
+
   while (digits[j] <= digits[i - 1]) {
     j -= 1;
   }
+
   [digits[i - 1], digits[j]] = [digits[j], digits[i - 1]];
+
   j = digits.length - 1;
+
   while (i < j) {
     [digits[i], digits[j]] = [digits[j], digits[i]];
     i += 1;
     j -= 1;
   }
-  const result = parseInt(digits.join(''), 10);
-  return result > number ? result : number;
+
+  return Number(digits.join(''));
 }
+
+getNearestBigger(123450);
 
 module.exports = {
   isPositive,

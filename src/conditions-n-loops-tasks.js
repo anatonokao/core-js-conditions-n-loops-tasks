@@ -553,8 +553,6 @@ function getNearestBigger(number) {
   return Number(digits.join(''));
 }
 
-getNearestBigger(123450);
-
 module.exports = {
   isPositive,
   getMaxNumber,
